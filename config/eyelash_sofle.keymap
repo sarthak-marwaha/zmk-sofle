@@ -40,8 +40,13 @@
 
         brackets {
             bindings = <&kp LEFT_BRACE>;
-            key-positions = <17 18>;
+            key-positions = <17 16>;
             layers = <0>;
+        };
+
+        right {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <21 22>;
         };
     };
 
@@ -73,6 +78,20 @@
             bindings = <&kp LG(Z)>;
             label = "UNDO";
         };
+
+        pull: pull {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp I &kp T &kp SPACE &kp P &kp U &kp L &kp L>;
+            label = "PULL";
+        };
+
+        push: push {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G &kp I &kp T &kp SPACE &kp P &kp U &kp S &kp H>;
+            label = "PUSH";
+        };
     };
 
     behaviors {
@@ -98,8 +117,8 @@
         sub {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DEL
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                &trans                 &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                &trans                 &trans
+&pull   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &trans
+&push   &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                &trans                 &trans
 &trans  &undo   &cut    &copy   &paste  &trans    &trans  &trans  &trans  &trans  &trans                &trans                 &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans                &trans
             >;
